@@ -14,19 +14,27 @@ import functools
 from loguru import logger
 
 
-def prepare(xcodebuild: str, wda_fp: str, udid: str):
-    """wda.sh path
+def prepare(wda_shell: str, xcodebuild: str, wda_fp: str, udid: str):
+    """prepare wda
+
+    wda_shell: wda.sh path, get from https://github.com/ssfanli/prepare-wda.git
+    xcodebuild: specified a xcodebuild, such as the default of MacOS xcodebuild
+        or 'xxx/Xcode10.3.app/Contents/Developer/usr/bin/xcodebuild'
+    wda_fp: WebDriverAgent path
+    udid: ios device udid
+
     """
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             logger.info(
+                f'\nwda_shell: {wda_shell}'
                 f'\nxcodebuild: {xcodebuild}'
                 f'\nwda_fp: {wda_fp}'
                 f'\nudid: {udid}'
             )
             try:
-                error_code = os.system(f'wda.sh {xcodebuild} {wda_fp} {udid}')
+                error_code = os.system(f'{wda_shell} {xcodebuild} {wda_fp} {udid}')
                 assert not error_code, f'wda.sh error_code: {error_code}'
                 return func(*args, **kwargs)
             except Exception as e:
