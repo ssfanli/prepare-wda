@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
-from screcord import (
+from prepare_wda import (
     __AUTHOR__,
     __AUTHOR_EMAIL__,
     __URL__,

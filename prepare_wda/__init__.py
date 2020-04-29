@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__PROJECT_NAME__ = r"pre-wda"
+__PROJECT_NAME__ = r"prewda"
 __AUTHOR__ = r"ssfanli"
 __AUTHOR_EMAIL__ = r"freedomlidi@163.com"
 __LICENSE__ = r"MIT"
-__URL__ = r"https://github.com/ssfanli/pre-wda.git"
+__URL__ = r"https://github.com/ssfanli/prepare-wda.git"
 __VERSION__ = r"0.0.1"
 __DESCRIPTION__ = r"a python wrapper for WebDriverAgent prepare"
 
@@ -14,7 +14,7 @@ import functools
 from loguru import logger
 
 
-def pre_wda(xcodebuild: str, wda_fp: str, udid: str):
+def prepare(xcodebuild: str, wda_fp: str, udid: str):
     """wda.sh path
     """
     def decorator(func):
