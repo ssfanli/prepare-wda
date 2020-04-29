@@ -33,15 +33,3 @@ def pre_wda(xcodebuild: str, wda_fp: str, udid: str):
                 logger.error(e)
         return wrapper
     return decorator
-
-
-if __name__ == '__main__':
-    XCODE_BUILD = "/Users/ssfanli/Software/Xcode_10.3.app/Contents/Developer/usr/bin/xcodebuild"
-    WDA = '/Users/ssfanli/Myfolder/repository/WebDriverAgent_166'
-    UDID = '00008020-001D1D900CB9002E'
-
-    @pre_wda(XCODE_BUILD, WDA, UDID)
-    def ss():
-        print('i am ss')
-
-    ss()
