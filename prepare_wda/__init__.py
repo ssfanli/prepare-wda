@@ -39,5 +39,7 @@ def prepare(wda_shell: str, xcodebuild: str, wda_fp: str, udid: str):
                 return func(*args, **kwargs)
             except Exception as e:
                 logger.error(e)
+            finally:
+                os.system("ps -ef | grep WebDriverAgentRunner | grep -v grep | awk '{print $2}' | xargs kill")
         return wrapper
     return decorator
