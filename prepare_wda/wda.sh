@@ -47,16 +47,6 @@ function start_iproxy() {
     fi
 }
 
-function check_args() {
-    if [[ $1 ]]
-    then
-#        echo "current args: $1"
-        echo $1
-    else
-        echo "args is none"
-        exit 1
-    fi
-}
 
 # ======= PROCESS HERE ======= #
 ## start wda service
