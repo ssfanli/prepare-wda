@@ -20,8 +20,7 @@ setup(
     author_email=__AUTHOR_EMAIL__,
     url=__URL__,
     packages=find_packages(),
-    package_data={'': ['*.txt', '*.TXT', '*.rb', '*.sh']},
-    # include_package_data=True,
+    include_package_data=True,
     license=__LICENSE__,
     python_requires=">=3.6",
     install_requires=["loguru"]

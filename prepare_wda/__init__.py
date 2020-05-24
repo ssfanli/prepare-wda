@@ -6,7 +6,7 @@ __AUTHOR__ = r"ssfanli"
 __AUTHOR_EMAIL__ = r"freedomlidi@163.com"
 __LICENSE__ = r"MIT"
 __URL__ = r"https://github.com/ssfanli/prepare-wda.git"
-__VERSION__ = r"0.0.3"
+__VERSION__ = r"0.0.4"
 __DESCRIPTION__ = r"a python wrapper for WebDriverAgent prepare"
 
 import os
