@@ -6,18 +6,18 @@ __AUTHOR__ = r"ssfanli"
 __AUTHOR_EMAIL__ = r"freedomlidi@163.com"
 __LICENSE__ = r"MIT"
 __URL__ = r"https://github.com/ssfanli/prepare-wda.git"
-__VERSION__ = r"0.0.2"
+__VERSION__ = r"0.0.3"
 __DESCRIPTION__ = r"a python wrapper for WebDriverAgent prepare"
 
 import os
 import functools
 from loguru import logger
+import prepare_wda
 
 
-def prepare(wda_shell: str, xcodebuild: str, wda_fp: str, udid: str):
+def prepare(xcodebuild: str, wda_fp: str, udid: str):
     """prepare wda
 
-    wda_shell: wda.sh path, get from https://github.com/ssfanli/prepare-wda.git
     xcodebuild: specified a xcodebuild, such as the default of MacOS xcodebuild
         or 'xxx/Xcode10.3.app/Contents/Developer/usr/bin/xcodebuild'
     wda_fp: WebDriverAgent path
@@ -27,6 +27,9 @@ def prepare(wda_shell: str, xcodebuild: str, wda_fp: str, udid: str):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
+            wda_shell = os.path.join(
+                os.path.dirname(prepare_wda.__file__),
+                'wda.sh')
             logger.info(
                 f'\nwda_shell: {wda_shell}'
                 f'\nxcodebuild: {xcodebuild}'
